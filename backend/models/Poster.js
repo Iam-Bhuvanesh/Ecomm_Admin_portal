@@ -7,7 +7,17 @@ const posterSchema = new mongoose.Schema({
     },
     title: {
         type: String,
-        required: false,
+        required: true,
+    },
+    subtitle: {
+        type: String,
+    },
+    offer: {
+        type: String,
+    },
+    cta: {
+        type: String,
+        default: 'SHOP NOW',
     },
     isActive: {
         type: Boolean,

@@ -27,6 +27,9 @@ const addPoster = async (req, res) => {
         const poster = new Poster({
             imageUrl,
             title: req.body.title || '',
+            subtitle: req.body.subtitle || '',
+            offer: req.body.offer || '',
+            cta: req.body.cta || 'SHOP NOW',
             isActive: req.body.isActive === 'true' || true,
         });
 
@@ -65,6 +68,9 @@ const updatePoster = async (req, res) => {
 
         if (poster) {
             poster.title = req.body.title || poster.title;
+            poster.subtitle = req.body.subtitle || poster.subtitle;
+            poster.offer = req.body.offer || poster.offer;
+            poster.cta = req.body.cta || poster.cta;
             poster.isActive = req.body.isActive !== undefined ? req.body.isActive : poster.isActive;
 
             if (req.file) {

@@ -98,4 +98,41 @@ const updateProduct = async (req, res) => {
     }
 };
 
-module.exports = { getProducts, addProduct, deleteProduct, updateProduct };
+// @desc    Get new arrivals
+// @route   GET /api/products/new-arrivals
+// @access  Public
+const getNewArrivals = async (req, res) => {
+    try {
+        const products = await Product.find({ isNewArrival: true }).limit(8);
+        res.json(products);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+// @desc    Get products by category
+// @route   GET /api/products/category/:category
+// @access  Public
+const getProductsByCategory = async (req, res) => {
+    try {
+        const categoryName = req.params.category.toUpperCase().replace(/-/g, ' ');
+        const products = await Product.find({ 
+            $or: [
+                { category: { $regex: categoryName, $options: 'i' } },
+                { category: req.params.category }
+            ]
+        });
+        res.json(products);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+module.exports = { 
+    getProducts, 
+    addProduct, 
+    deleteProduct, 
+    updateProduct,
+    getNewArrivals,
+    getProductsByCategory
+};

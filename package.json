@@ -1,0 +1,15 @@
+{
+  "name": "gridox-ecosystem",
+  "version": "1.0.0",
+  "description": "Unified repository for Gridox Storefront, Ecom Admin, and Shared Backend",
+  "scripts": {
+    "install:all": "npm install --prefix backend && npm install --prefix admin && npm install --prefix shop",
+    "dev:backend": "npm run dev --prefix backend",
+    "dev:admin": "npm run dev --prefix admin",
+    "dev:shop": "npm run dev --prefix shop",
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:admin\" \"npm run dev:shop\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
