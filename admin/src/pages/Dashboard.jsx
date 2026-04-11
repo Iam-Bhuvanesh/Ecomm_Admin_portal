@@ -32,45 +32,45 @@ const Dashboard = () => {
   ];
 
   return (
-    <div className="space-y-10 animate-in fade-in slide-in-from-bottom-5 duration-700">
+    <div className="space-y-6 sm:space-y-10 animate-in fade-in slide-in-from-bottom-5 duration-700">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
         <div>
-          <h2 className="text-4xl font-black text-slate-900 tracking-tighter">Summary Dashboard</h2>
-          <p className="mt-2 text-slate-500 font-medium">Hello {userInfo?.name}! Here's what's happening today in your store.</p>
+          <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tighter">Summary Dashboard</h2>
+          <p className="mt-1 sm:mt-2 text-slate-500 font-medium text-sm sm:text-base">Hello {userInfo?.name}! Here's what's happening today.</p>
         </div>
         <div className="flex gap-2">
             <span className="px-3 py-1 bg-emerald-50 text-emerald-600 text-[10px] font-black uppercase tracking-widest rounded-full ring-1 ring-emerald-500/20">Market Open</span>
         </div>
       </div>
 
-      <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-4 sm:gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat, i) => (
           <StatCard key={stat.title} {...stat} />
         ))}
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-2">
-        <div className="rounded-3xl border border-slate-100 bg-white p-8 shadow-sm shadow-slate-100 relative overflow-hidden group">
+      <div className="grid gap-6 sm:gap-8 lg:grid-cols-2">
+        <div className="rounded-3xl border border-slate-100 bg-white p-6 sm:p-8 shadow-sm shadow-slate-100 relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full -mr-16 -mt-16 blur-2xl"></div>
           
-          <h3 className="text-2xl font-black text-slate-900 tracking-tight">Quick Actions</h3>
-          <p className="mt-2 text-slate-400 font-medium text-sm">Update your store content instantly.</p>
+          <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Quick Actions</h3>
+          <p className="mt-1 sm:mt-2 text-slate-400 font-medium text-xs sm:text-sm">Update your store content instantly.</p>
           
-          <div className="mt-8 grid gap-4 sm:grid-cols-2">
-            <button className="flex flex-col items-center gap-4 rounded-3xl bg-slate-50 p-8 text-sm font-black text-slate-900 transition-all hover:bg-orange-500 hover:text-white group hover:shadow-2xl hover:shadow-orange-500/30">
-              <ImageIcon className="h-8 w-8 text-orange-600 transition-colors group-hover:text-white" />
-              <span>Update Hero Sliders</span>
+          <div className="mt-6 sm:mt-8 grid gap-4 grid-cols-2">
+            <button className="flex flex-col items-center gap-3 sm:gap-4 rounded-2xl sm:rounded-3xl bg-slate-50 p-4 sm:p-8 text-xs sm:text-sm font-black text-slate-900 transition-all hover:bg-orange-500 hover:text-white group hover:shadow-2xl hover:shadow-orange-500/30">
+              <ImageIcon className="h-6 w-6 sm:h-8 sm:w-8 text-orange-600 transition-colors group-hover:text-white" />
+              <span className="text-center">Hero Sliders</span>
             </button>
-            <button className="flex flex-col items-center gap-4 rounded-3xl bg-slate-50 p-8 text-sm font-black text-slate-900 transition-all hover:bg-emerald-600 hover:text-white group hover:shadow-2xl hover:shadow-emerald-600/30">
-              <ShoppingBag className="h-8 w-8 text-emerald-600 transition-colors group-hover:text-white" />
-              <span>Stock New Inventory</span>
+            <button className="flex flex-col items-center gap-3 sm:gap-4 rounded-2xl sm:rounded-3xl bg-slate-50 p-4 sm:p-8 text-xs sm:text-sm font-black text-slate-900 transition-all hover:bg-emerald-600 hover:text-white group hover:shadow-2xl hover:shadow-emerald-600/30">
+              <ShoppingBag className="h-6 w-6 sm:h-8 sm:w-8 text-emerald-600 transition-colors group-hover:text-white" />
+              <span className="text-center">New Stock</span>
             </button>
           </div>
         </div>
 
-        <div className="rounded-3xl border border-slate-100 bg-white p-8 shadow-sm shadow-slate-100">
-          <div className="flex items-center justify-between mb-8">
-            <h3 className="text-2xl font-black text-slate-900 tracking-tight text-white">Live Activity</h3>
+        <div className="rounded-3xl border border-slate-100 bg-white p-6 sm:p-8 shadow-sm shadow-slate-100">
+          <div className="flex items-center justify-between mb-6 sm:mb-8">
+            <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Live Activity</h3>
             <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Past 24H</span>
           </div>
           <div className="space-y-6">

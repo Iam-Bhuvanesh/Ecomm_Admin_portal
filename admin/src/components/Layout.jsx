@@ -66,6 +66,11 @@ const Layout = () => {
               <Link
                 key={item.path}
                 to={item.path}
+                onClick={() => {
+                  if (window.innerWidth < 1024) {
+                    setIsSidebarOpen(false);
+                  }
+                }}
                 className={`group flex items-center justify-between rounded-2xl px-5 py-4 text-sm font-bold transition-all duration-300 ${
                   isActive(item.path)
                     ? 'bg-orange-500 text-white shadow-xl shadow-orange-500/25 translate-x-1'
@@ -106,28 +111,31 @@ const Layout = () => {
       {/* Main Content Area */}
       <div className="flex flex-1 flex-col overflow-hidden bg-white">
         {/* Header */}
-        <header className="flex h-20 items-center justify-between border-b border-slate-100 bg-white/90 px-8 backdrop-blur-xl z-10 sticky top-0">
-          <div className="flex items-center gap-6">
-            <button className="lg:hidden text-slate-400 hover:text-slate-900 transition-colors" onClick={() => setIsSidebarOpen(true)}>
-              <Menu className="h-7 w-7" />
+        <header className="flex h-16 sm:h-20 items-center justify-between border-b border-slate-100 bg-white/90 px-4 sm:px-8 backdrop-blur-xl z-10 sticky top-0">
+          <div className="flex items-center gap-3 sm:gap-6">
+            <button className="lg:hidden text-slate-400 hover:text-slate-900 transition-colors p-1" onClick={() => setIsSidebarOpen(true)}>
+              <Menu className="h-6 w-6 sm:h-7 sm:h-7" />
             </button>
-            <h1 className="text-2xl font-black tracking-tight text-slate-900">
+            <h1 className="text-lg sm:text-2xl font-black tracking-tight text-slate-900 truncate max-w-[150px] sm:max-w-none">
               {menuItems.find(item => isActive(item.path))?.title || 'Dashboard'}
             </h1>
           </div>
           
-          <div className="flex items-center gap-6">
-            <div className="hidden sm:flex flex-col items-end">
+          <div className="flex items-center gap-2 sm:gap-6">
+            <div className="hidden md:flex flex-col items-end">
               <p className="text-xs font-black text-slate-400 uppercase tracking-widest">Store Status</p>
               <div className="flex items-center gap-2 mt-0.5">
                  <div className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></div>
                  <p className="text-sm font-bold text-emerald-600">Active & Syncing</p>
               </div>
             </div>
-            <div className="h-10 w-px bg-slate-100 hidden sm:block"></div>
-            <div className="flex items-center gap-3">
-               <div className="h-10 w-10 rounded-xl bg-orange-500/10 flex items-center justify-center">
-                  <ImageIcon className="h-5 w-5 text-orange-600" />
+            <div className="h-8 sm:h-10 w-px bg-slate-100 hidden md:block"></div>
+            <div className="flex items-center gap-2 sm:gap-3">
+               <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg sm:rounded-xl bg-orange-500/10 flex items-center justify-center">
+                  <ImageIcon className="h-4 w-4 sm:h-5 sm:w-5 text-orange-600" />
+               </div>
+               <div className="h-8 w-8 sm:h-10 sm:w-10 rounded-lg sm:rounded-xl bg-slate-100 flex items-center justify-center lg:hidden">
+                  <UserIcon className="h-4 w-4 sm:h-5 sm:w-5 text-slate-400" />
                </div>
             </div>
           </div>

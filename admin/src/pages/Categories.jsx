@@ -86,29 +86,29 @@ const Categories = () => {
       </div>
 
       {showForm && (
-        <div className="rounded-3xl border border-slate-100 bg-white p-8 sm:p-10 shadow-sm shadow-slate-100 relative overflow-hidden group">
+        <div className="rounded-3xl border border-slate-100 bg-white p-6 sm:p-10 shadow-sm shadow-slate-100 relative overflow-hidden group">
           <div className="absolute top-0 right-0 w-32 h-32 bg-orange-500/5 rounded-full -mr-16 -mt-16 blur-2xl"></div>
           
-          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <div className="space-y-6">
-              <div className="space-y-3">
-                <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-1 flex items-center gap-2"><Type className="h-3 w-3" /> Category Label</label>
+          <form onSubmit={handleSubmit} className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-10">
+            <div className="space-y-4 sm:space-y-6">
+              <div className="space-y-2 sm:space-y-3">
+                <label className="text-[10px] sm:text-xs font-black text-slate-400 uppercase tracking-widest pl-1 flex items-center gap-2"><Type className="h-3 w-3" /> Category Label</label>
                 <input
                   type="text"
                   required
-                  className="w-full rounded-2xl border-0 bg-slate-50 py-4 px-6 text-slate-900 font-bold placeholder-slate-400 ring-1 ring-inset ring-slate-100 transition-all focus:bg-white focus:ring-2 focus:ring-inset focus:ring-orange-500"
+                  className="w-full rounded-xl sm:rounded-2xl border-0 bg-slate-50 py-3 sm:py-4 px-5 sm:px-6 text-sm sm:text-base text-slate-900 font-bold placeholder-slate-400 ring-1 ring-inset ring-slate-100 transition-all focus:bg-white focus:ring-2 focus:ring-inset focus:ring-orange-500"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   placeholder="e.g. Formal Wear"
                 />
               </div>
 
-              <div className="space-y-3">
-                <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-1 flex items-center gap-2"><FileText className="h-3 w-3" /> Grid Story</label>
+              <div className="space-y-2 sm:space-y-3">
+                <label className="text-[10px] sm:text-xs font-black text-slate-400 uppercase tracking-widest pl-1 flex items-center gap-2"><FileText className="h-3 w-3" /> Grid Story</label>
                 <textarea
                   required
-                  rows="4"
-                  className="w-full rounded-2xl border-0 bg-slate-50 py-4 px-6 text-slate-900 font-bold placeholder-slate-400 ring-1 ring-inset ring-slate-100 transition-all focus:bg-white focus:ring-2 focus:ring-inset focus:ring-orange-500"
+                  rows="3"
+                  className="w-full rounded-xl sm:rounded-2xl border-0 bg-slate-50 py-3 sm:py-4 px-5 sm:px-6 text-sm sm:text-base text-slate-900 font-bold placeholder-slate-400 ring-1 ring-inset ring-slate-100 transition-all focus:bg-white focus:ring-2 focus:ring-inset focus:ring-orange-500"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   placeholder="Short, catchy text to appear on the grid."
@@ -116,9 +116,9 @@ const Categories = () => {
               </div>
             </div>
 
-            <div className="space-y-6">
-              <div className="space-y-3">
-                <label className="text-xs font-black text-slate-400 uppercase tracking-widest pl-1 flex items-center gap-2"><Upload className="h-3 w-3" /> Grid Visual</label>
+            <div className="space-y-4 sm:space-y-6">
+              <div className="space-y-2 sm:space-y-3">
+                <label className="text-[10px] sm:text-xs font-black text-slate-400 uppercase tracking-widest pl-1 flex items-center gap-2"><Upload className="h-3 w-3" /> Grid Visual</label>
                 <div className="relative">
                    <input
                     type="file"
@@ -130,19 +130,19 @@ const Categories = () => {
                   />
                   <label
                     htmlFor="cat-upload"
-                    className="flex cursor-pointer items-center justify-between rounded-2xl bg-slate-50 py-4 px-6 text-sm font-bold text-slate-900 ring-1 ring-inset ring-slate-100 transition-all hover:bg-slate-100/50 min-h-[56px] hover:ring-slate-200"
+                    className="flex cursor-pointer items-center justify-between rounded-xl sm:rounded-2xl bg-slate-50 py-3 sm:py-4 px-5 sm:px-6 text-sm font-bold text-slate-900 ring-1 ring-inset ring-slate-100 transition-all hover:bg-slate-100/50 min-h-[48px] sm:min-h-[56px] hover:ring-slate-200"
                   >
-                    <span className="truncate max-w-[200px]">{file ? file.name : 'Select grid cover image'}</span>
+                    <span className="truncate max-w-[150px] sm:max-w-[200px]">{file ? file.name : 'Select grid cover image'}</span>
                     <Plus className="h-5 w-5 text-orange-500" />
                   </label>
                 </div>
               </div>
 
-              <div className="pt-4">
+              <div className="pt-2 sm:pt-4">
                 <button
                   type="submit"
                   disabled={loading || !file}
-                  className="flex w-full items-center justify-center gap-3 rounded-2xl bg-emerald-600 px-6 py-4.5 text-sm font-black text-white transition-all hover:bg-emerald-500 shadow-xl shadow-emerald-500/20 translate-y-[-2px] hover:translate-y-[-4px] active:translate-y-0"
+                  className="flex w-full items-center justify-center gap-3 rounded-xl sm:rounded-2xl bg-emerald-600 px-6 py-3.5 sm:py-4.5 text-xs sm:text-sm font-black text-white transition-all hover:bg-emerald-500 shadow-xl shadow-emerald-500/20 translate-y-[-2px] hover:translate-y-[-4px] active:translate-y-0"
                 >
                   {loading ? <Loader2 className="h-5 w-5 animate-spin" /> : <span>PUBLISH CATEGORY</span>}
                 </button>

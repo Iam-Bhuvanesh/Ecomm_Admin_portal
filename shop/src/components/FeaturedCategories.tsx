@@ -94,7 +94,7 @@ const FeaturedCategories = () => {
         {localCategories.map((cat) => (
           <div key={cat._id} className="item">
             <div className="main-img-container">
-               <img src={cat.imageUrl} alt={cat.name} className="main-img" />
+               <img src={cat.imageUrl} alt={cat.name} className="main-img" fetchPriority="high" />
             </div>
             <div className="content">
               <div className="author">GRIDOX</div>
@@ -113,7 +113,7 @@ const FeaturedCategories = () => {
       <div className="thumbnail">
         {localCategories.map((cat, index) => (
             <div key={`thumb-${cat._id}`} className="item" onClick={() => handleThumbnailClick(index)}>
-                <img src={cat.imageUrl} alt={cat.name} />
+                <img src={cat.imageUrl} alt={cat.name} loading="lazy" />
                 <div className="content">
                     <div className="title">{cat.name}</div>
                     <div className="description">Explore</div>
